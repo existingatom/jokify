@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jokify</title>
+</head>
+
+<body>
+    <div class="heading">A joke a day keeps <span class="green">cheuginess</span> away.</div>
+    <div id="meme" class="text"></div>
+    <div class=btn-1>
+        <button class="btn" onclick="fetchQuote()">Give me a joke</button>
+    </div>
+</body>
+<script>
+    async function fetchQuote() {
+        const url = "https://v2.jokeapi.dev/joke/Dark?type=single";
+        const response = await fetch(url);
+        const text = await response.json();
+        console.log(text);
+        document.getElementById("meme").innerHTML = text.joke;
+    }
+    fetchQuote();
+</script>
+
+</html>
